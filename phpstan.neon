@@ -1,0 +1,6 @@
+parameters:
+	checkMissingIterableValueType: false
+	ignoreErrors: []
+
+includes:
+	- vendor/wyrihaximus/async-test-utilities/rules.neon

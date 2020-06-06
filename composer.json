@@ -1,0 +1,54 @@
+{
+    "name": "react-parallel/streams",
+    "description": "\ud83c\udfde\ufe0f Streams abstraction around ext-parallel Channels for ReactPHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cees-Jan Kiewiet",
+            "email": "ceesjank@gmail.com",
+            "homepage": "http://wyrihaximus.net/"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-parallel": "*",
+        "react/event-loop": "^1.1",
+        "react/promise": "^2.7",
+        "wyrihaximus/constants": "^1.4.3"
+    },
+    "require-dev": {
+        "wyrihaximus/async-test-utilities": "^2.0",
+        "wyrihaximus/ticking-promise": "^1.6"
+    },
+    "extra": {
+        "unused": [
+            "ext-parallel"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "ReactParallel\\Streams\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ReactParallel\\Tests\\Streams\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "composer normalize"
+        ],
+        "post-update-cmd": [
+            "composer normalize"
+        ]
+    }
+}
