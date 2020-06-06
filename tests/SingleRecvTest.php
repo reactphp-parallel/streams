@@ -38,7 +38,6 @@ final class SingleRecvTest extends AsyncTestCase
             $channel->send($d);
         });
 
-        $loop->run();
         $rd = $this->await($singleRecv->recv(), $loop, 3.3);
 
         self::assertSame($d, $rd);
@@ -63,7 +62,6 @@ final class SingleRecvTest extends AsyncTestCase
             $channel->close();
         });
 
-        $loop->run();
         $rd = $this->await($singleRecv->recv(), $loop, 3.3);
 
         self::assertNull($rd);
