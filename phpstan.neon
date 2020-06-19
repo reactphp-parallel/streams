@@ -1,7 +1,6 @@
 parameters:
 	checkMissingIterableValueType: false
 	ignoreErrors:
-	    - '#In method \"ReactParallel\\Streams\\RecvObservable::recv\", caught \"Throwable\" must be rethrown. Either catch a more specific exception or add a \"throw\" clause in the "catch" block to propagate the exception. More info: http:\/\/bit.ly\/failloud#'
 	    - '#Function sleep is unsafe to use.#'
 
 includes:

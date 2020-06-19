@@ -4,8 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c63dede3998d9aa49c0e1af8ce0c7b86",
+    "content-hash": "bc389c92bcb209302bb6600172898188",
     "packages": [
+        {
+            "name": "react-parallel/event-loop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp-parallel/event-loop.git",
+                "reference": "afb9cd93dfe1af45fa719b32c523c4fd64052566"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp-parallel/event-loop/zipball/afb9cd93dfe1af45fa719b32c523c4fd64052566",
+                "reference": "afb9cd93dfe1af45fa719b32c523c4fd64052566",
+                "shasum": ""
+            },
+            "require": {
+                "ext-parallel": "*",
+                "php": "^7.4",
+                "react/event-loop": "^1.1",
+                "react/promise": "^2.7",
+                "reactivex/rxphp": "^2.0",
+                "wyrihaximus/constants": "^1.4.3"
+            },
+            "require-dev": {
+                "wyrihaximus/async-test-utilities": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "unused": [
+                    "ext-parallel"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "ReactParallel\\EventLoop\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com",
+                    "homepage": "http://wyrihaximus.net/"
+                }
+            ],
+            "description": "🌀🌀 Event Loop bridge to ext-parallel Events",
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-06-20T07:40:24+00:00"
+        },
         {
             "name": "react/event-loop",
             "version": "v1.1.1",
@@ -6491,7 +6547,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "react-parallel/event-loop": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
