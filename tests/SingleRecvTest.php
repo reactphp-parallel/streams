@@ -6,6 +6,8 @@ use parallel\Channel;
 use parallel\Events;
 use React\EventLoop\Factory;
 use React\Promise\ExtendedPromiseInterface;
+use ReactParallel\EventLoop\EventLoopBridge;
+use ReactParallel\Streams\Factory as StreamFactory;
 use ReactParallel\Streams\SingleRecv;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
@@ -28,17 +30,14 @@ final class SingleRecvTest extends AsyncTestCase
 
         $loop = Factory::create();
         $channel = Channel::make($d, Channel::Infinite);
-        $events = new Events();
-        $events->setTimeout(0);
-        $events->addChannel($channel);
 
-        $singleRecv = new SingleRecv($loop, $events);
+        $singleRecv = new StreamFactory(new EventLoopBridge($loop));
 
         $loop->addTimer(2, function () use ($channel, $d): void {
             $channel->send($d);
         });
 
-        $rd = $this->await($singleRecv->recv(), $loop, 3.3);
+        $rd = $this->await($singleRecv->single($channel), $loop, 3.3);
 
         self::assertSame($d, $rd);
     }
@@ -52,17 +51,14 @@ final class SingleRecvTest extends AsyncTestCase
 
         $loop = Factory::create();
         $channel = Channel::make($d, Channel::Infinite);
-        $events = new Events();
-        $events->setTimeout(0);
-        $events->addChannel($channel);
 
-        $singleRecv = new SingleRecv($loop, $events);
+        $singleRecv = new StreamFactory(new EventLoopBridge($loop));
 
         $loop->futureTick(static function () use ($channel): void {
             $channel->close();
         });
 
-        $rd = $this->await($singleRecv->recv(), $loop, 3.3);
+        $rd = $this->await($singleRecv->single($channel), $loop, 3.3);
 
         self::assertNull($rd);
     }
