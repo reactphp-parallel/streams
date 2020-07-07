@@ -33,7 +33,7 @@ final class SingleRecvObservableTest extends AsyncTestCase
         run(function () use ($channels): void {
             foreach (range(0, 13) as $i) {
                 usleep(100);
-                foreach (range(0, 130) as $j) {
+                foreach (range(0, 66) as $j) {
                     foreach ($channels as $channel) {
                         $channel->send($i);
                     }
@@ -54,7 +54,7 @@ final class SingleRecvObservableTest extends AsyncTestCase
 
         $range = [];
         foreach (range(0, 13) as $i) {
-            foreach (range(0, 130) as $j) {
+            foreach (range(0, 66) as $j) {
                 $range[] = $i;
             }
         }
