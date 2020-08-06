@@ -16,6 +16,12 @@ final class Factory
         $this->loop = $loop;
     }
 
+    public function stream(): Observable
+    {
+        return $this->stream(Channel::open($stream->name()));
+    }
+
+
     public function channel(Channel $channel): Observable
     {
         return $this->loop->observe($channel);
