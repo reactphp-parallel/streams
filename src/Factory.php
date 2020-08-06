@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace ReactParallel\Streams;
 
@@ -18,13 +16,13 @@ final class Factory
         $this->loop = $loop;
     }
 
-    public function stream(Channel $channel): Observable
+    public function channel(Channel $channel): Observable
     {
         return $this->loop->observe($channel);
     }
 
     public function single(Channel $channel): PromiseInterface
     {
-        return $this->loop->observe($channel)->take(1)->toPromise();
+        return $this->channel($channel)->take(1)->toPromise();
     }
 }
