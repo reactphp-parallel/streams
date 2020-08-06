@@ -47,7 +47,7 @@ final class SingleRecvObservableTest extends AsyncTestCase
 
         $promises = [];
         foreach ($channels as $channel) {
-            $promises[] = $recvObservable->stream($channel)->toArray()->toPromise();
+            $promises[] = $recvObservable->channel($channel)->toArray()->toPromise();
         }
 
         $rd = $this->await(all($promises), $loop, 3.3);
