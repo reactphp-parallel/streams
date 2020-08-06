@@ -19,12 +19,12 @@ use function WyriHaximus\React\timedPromise;
 /**
  * @internal
  */
-final class SingleRecvTest extends AsyncTestCase
+final class SingleTest extends AsyncTestCase
 {
     /**
      * @test
      */
-    public function recv(): void
+    public function single(): void
     {
         $d = bin2hex(random_bytes(13));
 

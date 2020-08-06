@@ -16,12 +16,12 @@ use function sleep;
 /**
  * @internal
  */
-final class SingleRecvObservableTest extends AsyncTestCase
+final class ChannelTest extends AsyncTestCase
 {
     /**
      * @test
      */
-    public function recv(): void
+    public function channel(): void
     {
         $d = bin2hex(random_bytes(13));
 
