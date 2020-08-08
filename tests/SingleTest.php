@@ -3,18 +3,13 @@
 namespace ReactParallel\Tests\Streams;
 
 use parallel\Channel;
-use parallel\Events;
 use React\EventLoop\Factory;
-use React\Promise\ExtendedPromiseInterface;
 use ReactParallel\EventLoop\EventLoopBridge;
+use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
+use ReactParallel\Runtime\Runtime;
 use ReactParallel\Streams\Factory as StreamFactory;
 use ReactParallel\Streams\SingleRecv;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
-use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
-use ReactParallel\Runtime\Runtime;
-use parallel\Runtime\Error\Closed;
-use function Safe\sleep;
-use function WyriHaximus\React\timedPromise;
 
 /**
  * @internal
