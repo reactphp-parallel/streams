@@ -3,7 +3,6 @@
 namespace ReactParallel\Tests\Streams;
 
 use parallel\Channel;
-use parallel\Events;
 use React\EventLoop\Factory;
 use ReactParallel\EventLoop\EventLoopBridge;
 use ReactParallel\Streams\Factory as StreamFactory;
