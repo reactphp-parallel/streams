@@ -1,60 +1,52 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace ReactParallel\Tests\Streams;
 
 use parallel\Channel;
-use React\EventLoop\Factory;
+use React\EventLoop\Loop;
 use ReactParallel\EventLoop\EventLoopBridge;
-use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
-use ReactParallel\Runtime\Runtime;
 use ReactParallel\Streams\Factory as StreamFactory;
-use ReactParallel\Streams\SingleRecv;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
-/**
- * @internal
- */
+use function bin2hex;
+use function random_bytes;
+
 final class SingleTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function single(): void
     {
         $d = bin2hex(random_bytes(13));
 
-        $loop = Factory::create();
         $channel = Channel::make($d, Channel::Infinite);
 
-        $singleRecv = new StreamFactory(new EventLoopBridge($loop));
+        $singleRecv = new StreamFactory(new EventLoopBridge());
 
-        $loop->addTimer(2, function () use ($channel, $d): void {
+        Loop::addTimer(2, static function () use ($channel, $d): void {
             $channel->send($d);
         });
+        Loop::addTimer(3, static function () use ($channel): void {
+            $channel->close();
+        });
 
-        $rd = $this->await($singleRecv->single($channel), $loop, 3.3);
-
-        self::assertSame($d, $rd);
+        self::assertSame($d, $singleRecv->single($channel));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function timedOut(): void
     {
         $d = bin2hex(random_bytes(13));
 
-        $loop = Factory::create();
         $channel = Channel::make($d, Channel::Infinite);
 
-        $singleRecv = new StreamFactory(new EventLoopBridge($loop));
+        $singleRecv = new StreamFactory(new EventLoopBridge());
 
-        $loop->futureTick(static function () use ($channel): void {
+        Loop::futureTick(static function () use ($channel): void {
             $channel->close();
         });
 
-        $rd = $this->await($singleRecv->single($channel), $loop, 3.3);
-
-        self::assertNull($rd);
+        self::assertNull($singleRecv->single($channel));
     }
 }

@@ -1,7 +1,0 @@
-parameters:
-	checkMissingIterableValueType: false
-	ignoreErrors:
-	    - '#Function sleep is unsafe to use.#'
-
-includes:
-	- vendor/wyrihaximus/async-test-utilities/rules.neon

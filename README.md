@@ -3,7 +3,6 @@
 ![Continuous Integration](https://github.com/Reactphp-parallel/streams/workflows/Continuous%20Integration/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/React-parallel/streams/v/stable.png)](https://packagist.org/packages/React-parallel/streams)
 [![Total Downloads](https://poser.pugx.org/React-parallel/streams/downloads.png)](https://packagist.org/packages/React-parallel/streams)
-[![Code Coverage](https://scrutinizer-ci.com/g/Reactphp-parallel/streams/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Reactphp-parallel/streams/?branch=master)
 [![Type Coverage](https://shepherd.dev/github/Reactphp-parallel/streams/coverage.svg)](https://shepherd.dev/github/Reactphp-parallel/streams)
 [![License](https://poser.pugx.org/React-parallel/streams/license.png)](https://packagist.org/packages/React-parallel/streams)
 
@@ -12,7 +11,7 @@
 To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `~`.
 
 ```
-composer require react-parallel/streams 
+composer require react-parallel/streams
 ```
 
 # Usage
@@ -33,7 +32,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## License ##
 
-Copyright 2020 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
+Copyright 2024 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
