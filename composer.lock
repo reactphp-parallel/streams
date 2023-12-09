@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89da7ff882d4ba1debfb66607d343bb0",
+    "content-hash": "1aad54e17f25830737b0ddeec5338f44",
     "packages": [
         {
             "name": "lcobucci/clock",
@@ -10168,7 +10168,7 @@
         "react-parallel/event-loop": 20
     },
     "prefer-stable": false,
-    "prefer-lowest": true,
+    "prefer-lowest": false,
     "platform": {
         "php": "^8.2",
         "ext-parallel": "*"
