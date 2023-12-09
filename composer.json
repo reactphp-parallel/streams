@@ -10,28 +10,18 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^8.2",
         "ext-parallel": "*",
-        "react-parallel/event-loop": "^1.0",
-        "react/event-loop": "^1.1",
+        "react-parallel/event-loop": "dev-master as 2.0",
+        "react/event-loop": "^1.5",
         "react/promise": "^2.8",
         "reactivex/rxphp": "^2.0",
-        "wyrihaximus/constants": "^1.5"
+        "wyrihaximus/constants": "^1.6",
+        "wyrihaximus/react-awaitable-observable": "^1.1"
     },
     "require-dev": {
-        "wyrihaximus/async-test-utilities": "^2.2 || ^3.0",
-        "wyrihaximus/ticking-promise": "^1.6"
-    },
-    "config": {
-        "platform": {
-            "php": "7.4.7"
-        },
-        "sort-packages": true
-    },
-    "extra": {
-        "unused": [
-            "ext-parallel"
-        ]
+        "wyrihaximus/async-test-utilities": "^7.2",
+        "wyrihaximus/ticking-promise": "^3"
     },
     "autoload": {
         "psr-4": {
@@ -43,8 +33,18 @@
             "ReactParallel\\Tests\\Streams\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true,
+            "icanhazstring/composer-unused": true,
+            "infection/extension-installer": true
+        },
+        "platform": {
+            "php": "8.2.13"
+        },
+        "sort-packages": true
+    },
     "scripts": {
         "post-install-cmd": [
             "composer normalize"

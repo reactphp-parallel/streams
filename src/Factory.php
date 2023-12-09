@@ -5,26 +5,45 @@ declare(strict_types=1);
 namespace ReactParallel\Streams;
 
 use parallel\Channel;
-use React\Promise\PromiseInterface;
 use ReactParallel\EventLoop\EventLoopBridge;
-use Rx\Observable;
+use WyriHaximus\React\AwaitingIterator;
 
 final class Factory
 {
-    private EventLoopBridge $loop;
-
-    public function __construct(EventLoopBridge $loop)
+    public function __construct(private EventLoopBridge $loop)
     {
-        $this->loop = $loop;
     }
 
-    public function channel(Channel $channel): Observable
+    /**
+     * @param Channel<T> $channel
+     *
+     * @return iterable<T>
+     *
+     * @template T
+     */
+    public function channel(Channel $channel): iterable
     {
         return $this->loop->observe($channel);
     }
 
-    public function single(Channel $channel): PromiseInterface
+    /**
+     * @param Channel<T> $channel
+     *
+     * @return T
+     *
+     * @template T
+     */
+    public function single(Channel $channel): mixed
     {
-        return $this->channel($channel)->take(1)->toPromise();
+        $stream = $this->channel($channel);
+        foreach ($stream as $value) {
+            if ($stream instanceof AwaitingIterator) {
+                $stream->break();
+            }
+
+            return $value;
+        }
+
+        return null;
     }
 }
