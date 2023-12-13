@@ -48,7 +48,11 @@ final class ChannelTest extends AsyncTestCase
 
         $promises = [];
         foreach ($channels as $channel) {
-            $promises[] = async(static fn (Channel $channel): array => [...$recvObservable->channel($channel)])($channel);
+            $promises[] = async(
+                static fn (Channel $channel): array => [
+                    ...$recvObservable->channel($channel),
+                ]
+            )($channel);
         }
 
         $rd = await(all($promises));
