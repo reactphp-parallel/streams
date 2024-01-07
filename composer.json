@@ -12,7 +12,7 @@
     "require": {
         "php": "^8.2",
         "ext-parallel": "*",
-        "react-parallel/event-loop": "dev-master as 2.0",
+        "react-parallel/event-loop": "^2@dev",
         "react/event-loop": "^1.5",
         "react/promise": "^2.11 || ^3.1",
         "reactivex/rxphp": "^2.0.12",
