@@ -6,7 +6,6 @@ namespace ReactParallel\Streams;
 
 use parallel\Channel;
 use ReactParallel\EventLoop\EventLoopBridge;
-use WyriHaximus\React\AwaitingIterator;
 
 final class Factory
 {
@@ -29,7 +28,7 @@ final class Factory
     /**
      * @param Channel<T> $channel
      *
-     * @return T
+     * @return ?T
      *
      * @template T
      */
@@ -37,10 +36,6 @@ final class Factory
     {
         $stream = $this->channel($channel);
         foreach ($stream as $value) {
-            if ($stream instanceof AwaitingIterator) {
-                $stream->break();
-            }
-
             return $value;
         }
 
