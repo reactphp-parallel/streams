@@ -51,7 +51,7 @@ final class ChannelTest extends AsyncTestCase
             $promises[] = async(
                 static fn (Channel $channel): array => [
                     ...$recvObservable->channel($channel),
-                ]
+                ],
             )($channel);
         }
 
