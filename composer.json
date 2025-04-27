@@ -18,7 +18,7 @@
     },
     "require-dev": {
         "react-parallel/stubs": "^1.2",
-        "wyrihaximus/async-test-utilities": "^5 || ^7.3",
+        "wyrihaximus/async-test-utilities": "^5 || ^7.3 || ^9.0",
         "wyrihaximus/ticking-promise": "^3"
     },
     "autoload": {
