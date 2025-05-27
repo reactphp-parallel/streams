@@ -7,7 +7,7 @@ namespace ReactParallel\Streams;
 use parallel\Channel;
 use ReactParallel\EventLoop\EventLoopBridge;
 
-final class Factory
+final readonly class Factory
 {
     public function __construct(private EventLoopBridge $loop)
     {

@@ -4,13 +4,13 @@ parameters:
 		-
 			message: '#sleep blocks the event loop#'
 			path: ../../tests/ChannelTest.php
+		-
+			identifier: shipmonk.checkedExceptionInCallable
+			path: ../../tests/SingleTest.php
+			count: 4
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:
 				- ReactParallel\EventLoop\CancelledException
 				- ReactParallel\EventLoop\CanceledFuture
 				- ReactParallel\EventLoop\KilledRuntime
-
-includes:
-	- ../../vendor/wyrihaximus/async-test-utilities/rules.neon
-	- ../../vendor/react-parallel/stubs/extension.neon
