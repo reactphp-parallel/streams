@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ReactParallel\Tests\Streams;
 
 use parallel\Channel;
+use PHPUnit\Framework\Attributes\Test;
 use ReactParallel\EventLoop\EventLoopBridge;
 use ReactParallel\Streams\Factory as StreamFactory;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
@@ -21,7 +22,7 @@ use function usleep;
 
 final class ChannelTest extends AsyncTestCase
 {
-    /** @test */
+    #[Test]
     public function channel(): void
     {
         $d = bin2hex(random_bytes(13));

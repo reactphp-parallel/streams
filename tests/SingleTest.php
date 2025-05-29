@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ReactParallel\Tests\Streams;
 
 use parallel\Channel;
+use PHPUnit\Framework\Attributes\Test;
 use React\EventLoop\Loop;
 use ReactParallel\EventLoop\EventLoopBridge;
 use ReactParallel\Streams\Factory as StreamFactory;
@@ -15,7 +16,7 @@ use function random_bytes;
 
 final class SingleTest extends AsyncTestCase
 {
-    /** @test */
+    #[Test]
     public function single(): void
     {
         $d = bin2hex(random_bytes(13));
@@ -34,7 +35,7 @@ final class SingleTest extends AsyncTestCase
         self::assertSame($d, $singleRecv->single($channel));
     }
 
-    /** @test */
+    #[Test]
     public function timedOut(): void
     {
         $d = bin2hex(random_bytes(13));
