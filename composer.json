@@ -13,13 +13,13 @@
     "php": "^8.4",
     "ext-parallel": "*",
     "react-parallel/event-loop": "^2.1.0",
-    "react/event-loop": "^1.5",
-    "react/promise": "^3.1"
+    "react/event-loop": "^1.6.0",
+    "react/promise": "^3.3.0"
   },
   "require-dev": {
     "react-parallel/stubs": "^1.2",
-    "wyrihaximus/async-test-utilities": "^10.5.0",
-    "wyrihaximus/makefiles": "^0.7.12",
+    "wyrihaximus/async-test-utilities": "^12.2.0",
+    "wyrihaximus/makefiles": "^0.7.16",
     "wyrihaximus/ticking-promise": "^3.1.0"
   },
   "autoload": {
