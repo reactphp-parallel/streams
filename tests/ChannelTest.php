@@ -34,6 +34,7 @@ final class ChannelTest extends AsyncTestCase
         run(static function () use ($channels): void {
             foreach (range(0, 13) as $i) {
                 usleep(100);
+                /** @phpstan-ignore foreach.unusedValue */
                 foreach (range(0, 66) as $j) {
                     foreach ($channels as $channel) {
                         $channel->send($i);
@@ -60,6 +61,7 @@ final class ChannelTest extends AsyncTestCase
 
         $range = [];
         foreach (range(0, 13) as $i) {
+            /** @phpstan-ignore foreach.unusedValue */
             foreach (range(0, 66) as $j) {
                 $range[] = $i;
             }
