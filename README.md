@@ -6,7 +6,7 @@
 [![Type Coverage](https://shepherd.dev/github/Reactphp-parallel/streams/coverage.svg)](https://shepherd.dev/github/Reactphp-parallel/streams)
 [![License](https://poser.pugx.org/React-parallel/streams/license.png)](https://packagist.org/packages/React-parallel/streams)
 
-### Installation ###
+## Installation
 
 To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `~`.
 
@@ -14,7 +14,7 @@ To install via [Composer](http://getcomposer.org/), use the command below, it wi
 composer require react-parallel/streams
 ```
 
-# Usage
+## Usage
 
 This package currently only offers channel to observable conversion through two methods:
 
@@ -22,15 +22,15 @@ This package currently only offers channel to observable conversion through two 
 $loop = EventLoopFactory::create();
 $eventLoopBridge = new EventLoopBridge($loop);
 $factory = new Factory($eventLoopBridge);
-$factory->channel($channel); // Returns an observble that will continue until the channel closes
+$factory->channel($channel); // Returns an observable that will continue until the channel closes
 $factory->single($channel); // Returns a promise that will resolve with the first message it receives
 ```
 
-## Contributing ##
+## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## License ##
+## License
 
 Copyright 2026 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
 
